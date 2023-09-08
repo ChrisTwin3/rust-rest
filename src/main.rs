@@ -17,6 +17,7 @@ async fn main() -> io::Result<()> {
             .wrap(middleware::Logger::default())
             .service(api::get_users)
             .service(api::create_user)
+            .service(api::delete_user)
     })
     .bind("127.0.0.1:8080")?
     .run()

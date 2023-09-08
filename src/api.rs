@@ -76,3 +76,11 @@ pub async fn create_user(user_req: Json<PersonRequest>) -> HttpResponse {
         .content_type("application/json")
         .json(user_req.create_person())
 }
+
+#[delete("/users/{id}")]
+pub async fn delete_user(path: Path<(String,)>) -> HttpResponse {
+    HttpResponse::NoContent()
+        .content_type("application/json")
+        .await
+        .unwrap()
+}
